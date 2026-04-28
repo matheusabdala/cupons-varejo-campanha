@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fascina — Pague 9, Leve 12 | Sniff Parfum Atacado</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #E8C96A;
+      --gold-dim: rgba(201,168,76,0.18);
+      --dark: #0a0806;
+      --dark2: #13100c;
+      --dark3: #1c1710;
+      --cream: #f5efe6;
+      --text-muted: rgba(245,239,230,0.55);
+      --border: rgba(201,168,76,0.2);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--dark);
+      color: var(--cream);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* TOPBAR */
+    .topbar {
+      background: var(--gold);
+      color: var(--dark);
+      text-align: center;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 9px 16px;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 40px;
+      border-bottom: 1px solid var(--border);
+      background: var(--dark2);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-logo img { height: 48px; width: auto; }
+    .header-badge {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 2px;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 24px 60px;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 50% 30%, rgba(201,168,76,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 80% 80%, rgba(201,168,76,0.06) 0%, transparent 60%),
+        var(--dark2);
+      z-index: 0;
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A84C' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 780px; }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+    }
+    .hero-eyebrow::before, .hero-eyebrow::after {
+      content: '';
+      width: 30px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.5;
+    }
+
+    .hero-brand-logo {
+      margin-bottom: 24px;
+    }
+    .hero-brand-logo img {
+      height: 100px;
+      width: auto;
+      filter: brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(5deg) brightness(0.88);
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(42px, 7vw, 80px);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      margin-bottom: 20px;
+      color: var(--cream);
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .hero-promo-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--gold) 0%, #a8862e 100%);
+      color: var(--dark);
+      font-weight: 700;
+      font-size: clamp(18px, 3vw, 26px);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 14px 40px;
+      margin: 32px 0 24px;
+      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+      position: relative;
+    }
+
+    .hero-desc {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto 40px;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 16px 36px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--gold);
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+      z-index: -1;
+    }
+    .hero-cta:hover { color: var(--dark); }
+    .hero-cta:hover::before { transform: translateX(0); }
+
+    .hero-divider {
+      margin: 56px auto 0;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: var(--gold);
+      opacity: 0.4;
+    }
+    .hero-divider span { font-size: 8px; letter-spacing: 0.3em; text-transform: uppercase; }
+    .hero-divider::before, .hero-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--gold);
+      width: 60px;
+    }
+
+    /* SECTION TITLE */
+    .section-header {
+      text-align: center;
+      padding: 72px 24px 48px;
+    }
+    .section-eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(30px, 4vw, 52px);
+      font-weight: 300;
+      line-height: 1.15;
+    }
+    .section-title em { font-style: italic; color: var(--gold); }
+    .section-line {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      margin: 20px auto 0;
+      opacity: 0.5;
+    }
+
+    /* PRODUCTS GRID */
+    .products-section {
+      padding: 0 24px 80px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 2px;
+    }
+
+    .product-card {
+      background: var(--dark3);
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: border-color 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .product-card:hover { border-color: var(--gold); }
+    .product-card:hover .product-overlay { opacity: 1; }
+    .product-card:hover .product-img { transform: scale(1.04); }
+
+    .product-img-wrap {
+      position: relative;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      background: linear-gradient(160deg, #e8e0d4 0%, #d6ccbf 100%);
+    }
+    .product-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 20px;
+      transition: transform 0.5s ease;
+      mix-blend-mode: multiply;
+    }
+    .product-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 16px;
+    }
+    .product-overlay-text {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .product-info {
+      padding: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .product-number {
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      opacity: 0.6;
+      margin-bottom: 4px;
+    }
+    .product-name {
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      font-weight: 500;
+      line-height: 1.4;
+      text-transform: uppercase;
+      color: var(--cream);
+    }
+    .product-volume {
+      font-size: 10px;
+      color: var(--text-muted);
+      margin-top: 4px;
+      letter-spacing: 0.04em;
+    }
+
+    /* PROMO STRIP */
+    .promo-strip {
+      background: linear-gradient(90deg, var(--dark2) 0%, #1a1408 50%, var(--dark2) 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 52px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .promo-strip::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 100% at 50% 50%, rgba(201,168,76,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .promo-strip-eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .promo-strip-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 300;
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+    .promo-strip-title strong {
+      color: var(--gold);
+      font-weight: 600;
+    }
+    .promo-strip-sub {
+      font-size: 13px;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      max-width: 440px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+    .promo-numbers {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      margin-bottom: 36px;
+    }
+    .promo-num {
+      text-align: center;
+      padding: 24px 40px;
+      border: 1px solid var(--border);
+    }
+    .promo-num-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(48px, 8vw, 96px);
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .promo-num-label {
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+    .promo-sep {
+      padding: 0 24px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-style: italic;
+      color: var(--gold);
+      opacity: 0.4;
+    }
+
+    /* CTA */
+    .cta-section {
+      padding: 72px 24px;
+      text-align: center;
+      background: var(--dark2);
+    }
+    .cta-section p {
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--gold);
+      color: var(--dark);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 18px 48px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .cta-btn:hover { background: var(--gold-light); }
+    .cta-btn svg { width: 16px; height: 16px; }
+
+    /* FEATURES */
+    .features {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0;
+      border-top: 1px solid var(--border);
+    }
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 22px 32px;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border-right: 1px solid var(--border);
+    }
+    .feature:last-child { border-right: none; }
+    .feature-icon { color: var(--gold); font-size: 8px; }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 40px 24px;
+      border-top: 1px solid var(--border);
+      background: var(--dark);
+    }
+    footer img { height: 36px; margin-bottom: 12px; }
+    footer p { font-size: 11px; color: var(--text-muted); letter-spacing: 0.06em; line-height: 1.6; }
+
+    /* SCROLL ANIMATION */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      header { padding: 14px 20px; }
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+      .promo-num { padding: 16px 20px; }
+      .feature { padding: 16px 20px; font-size: 10px; }
+    }
+    @media (max-width: 480px) {
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+      .header-badge { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">🌙 A maior distribuidora de perfumes árabes no atacado do Brasil</div>
+
+  <header>
+    <div class="header-logo">
+      <img src="https://atacado.sniffparfum.com.br/assets/logo.png" alt="Sniff Parfum">
+    </div>
+    <div class="header-badge">Promoção Exclusiva — Atacado</div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Sniff Parfum apresenta</div>
+      <div class="hero-brand-logo">
+        <img src="https://fascina.com.br/wp-content/uploads/2025/10/logo_fascina.png" alt="Fascina">
+      </div>
+      <h1>A elegância<br>não precisa<br><em>ser cara.</em></h1>
+      <p class="hero-sub">Referência olfativa dos grandes clássicos da perfumaria tradicional</p>
+
+      <div class="hero-promo-badge">✦ &nbsp;Pague 9 &nbsp;·&nbsp; Leve 12 &nbsp;✦</div>
+
+      <p class="hero-desc">
+        Uma coleção de fragrâncias sofisticadas com DNA da alta perfumaria. Luxo acessível para seu cliente e margens excelentes para o seu negócio.
+      </p>
+
+      <a href="#perfumes" class="hero-cta">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="14" height="14">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+        </svg>
+        Ver a coleção completa
+      </a>
+    </div>
+  </section>
+
+  <!-- PROMO STRIP -->
+  <section class="promo-strip">
+    <div class="promo-strip-eyebrow">Oferta Exclusiva Atacado</div>
+    <div class="promo-strip-title">
+      Compre <strong>9</strong> e leve <strong>12</strong>
+    </div>
+    <p class="promo-strip-sub">
+      3 unidades a mais para ampliar seu portfólio, conquistar novos clientes e maximizar sua margem de lucro.
+    </p>
+    <div class="promo-numbers">
+      <div class="promo-num">
+        <div class="promo-num-val">9</div>
+        <div class="promo-num-label">Você paga</div>
+      </div>
+      <div class="promo-sep">+3</div>
+      <div class="promo-num">
+        <div class="promo-num-val">12</div>
+        <div class="promo-num-label">Você recebe</div>
+      </div>
+    </div>
+    <a href="https://atacado.sniffparfum.com.br/fascina/m" target="_blank" class="hero-cta">
+      Aproveitar agora
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="14" height="14">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+      </svg>
+    </a>
+  </section>
+
+  <!-- PRODUCTS -->
+  <div id="perfumes">
+    <div class="section-header">
+      <div class="section-eyebrow">Coleção Completa</div>
+      <h2 class="section-title">15 Fragrâncias <em>Exclusivas</em></h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="products-section">
+      <div class="products-grid" id="productsGrid"></div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <p>Acesse o portal e faça seu pedido de atacado</p>
+    <a href="https://atacado.sniffparfum.com.br/fascina/m" target="_blank" class="cta-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+      </svg>
+      Ver todos os perfumes Fascina
+    </a>
+  </section>
+
+  <section class="features">
+    <div class="feature"><span class="feature-icon">✦</span> Perfumes Originais Importados</div>
+    <div class="feature"><span class="feature-icon">✦</span> Alta Conversão em Vendas</div>
+    <div class="feature"><span class="feature-icon">✦</span> Entrega para Todo o Brasil</div>
+    <div class="feature"><span class="feature-icon">✦</span> Estoque à Pronta Entrega</div>
+  </section>
+
+  <footer>
+    <img src="https://atacado.sniffparfum.com.br/assets/logo.png" alt="Sniff Parfum">
+    <p>© 2026 Sniff Parfum — A maior distribuidora de perfumes árabes no atacado do Brasil</p>
+    <p style="margin-top:6px;">Fascina é uma marca exclusiva do portfólio Sniff Parfum.</p>
+  </footer>
+
+  <script>
+    const perfumes = [
+      { code: 'L001', name: 'Nuit de Luxe', volume: 'EDP 50 ML', url: 'https://atacado.sniffparfum.com.br/agua-de-colonia-fascina-nuit-de-luxe-50-ml/p' },
+      { code: 'L002', name: 'Fascina Impero Segreto', volume: 'EDP 50 ML', url: 'https://atacado.sniffparfum.com.br/agua-de-colonia-fascina-impero-segreto-50-ml/p' },
+      { code: 'L003', name: 'Déesse Dorée', volume: 'EDP 50 ML', url: 'https://atacado.sniffparfum.com.br/agua-de-colonia-fascina-deesse-doree-50-ml/p' },
+      { code: 'L004', name: 'Destinó Dolce', volume: 'EDP 50 ML', url: 'https://atacado.sniffparfum.com.br/agua-de-colonia-fascina-destino-dolce-50-ml/p' },
+      { code: 'L005', name: 'Essenza Viva', volume: 'EDP 50 ML', url: 'https://atacado.sniffparfum.com.br/agua-de-colonia-fascina-essenza-viva-50-ml/p' },
+      { code: 'L006', name: "L'Malayn Oud", volume: 'EDP 50 ML', url: 'https://atacado.sniffparfum.com.br/agua-de-colonia-fascina-al-malayin-oud-50-ml/p' },
+      { code: 'L007', name: 'Force Suprême', volume: 'EDP 50 ML', url: 'https://atacado.sniffparfum.com.br/agua-de-colonia-fascina-force-supreme-50-ml/p' },
+      { code: 'L008', name: 'Sogno Incantato', volume: 'EDP 50 ML', url: 'https://atacado.sniffparfum.com.br/agua-de-colonia-fascina-sogno-incantato-50-ml/p' },
+      { code: 'L009', name: 'Rosa Única', volume: 'EDP 50 ML', url: 'https://atacado.sniffparfum.com.br/agua-de-colonia-fascina-rosa-unica-50-ml/p' },
+      { code: 'L010', name: 'Mistero della Notte', volume: 'EDP 50 ML', url: 'https://atacado.sniffparfum.com.br/agua-de-colonia-fascina-mistero-della-notte-50-ml/p' },
+      { code: 'L011', name: 'Laya Essence', volume: 'EDP 50 ML', url: 'https://atacado.sniffparfum.com.br/agua-de-colonia-fascina-laya-essence-50-ml/p' },
+      { code: 'L012', name: 'Mon Chemin', volume: 'EDP 50 ML', url: 'https://atacado.sniffparfum.com.br/agua-de-colonia-fascina-mon-chemin-50-ml/p' },
+      { code: 'L013', name: 'Instinto Selvaggio', volume: 'EDP 50 ML', url: 'https://atacado.sniffparfum.com.br/agua-de-colonia-fascina-instinto-selvaggio-50-ml/p' },
+      { code: 'L014', name: 'Amour Sublime', volume: 'EDP 50 ML', url: 'https://atacado.sniffparfum.com.br/agua-de-colonia-fascina-amour-sublime-50-ml/p' },
+      { code: 'L015', name: 'Elegance Moderne', volume: 'EDP 50 ML', url: 'https://atacado.sniffparfum.com.br/agua-de-colonia-fascina-elegance-moderne-50-ml/p' },
+    ];
+
+    const grid = document.getElementById('productsGrid');
+    const baseUrl = 'https://wikiparfumbr.s3.us-east-1.amazonaws.com/Perfumes/';
+
+    perfumes.forEach((p, i) => {
+      const num = String(i + 1).padStart(2, '0');
+      const card = document.createElement('a');
+      card.href = p.url;
+      card.target = '_blank';
+      card.className = 'product-card fade-up';
+      card.style.transitionDelay = `${(i % 5) * 60}ms`;
+      card.innerHTML = `
+        <div class="product-img-wrap">
+          <img class="product-img" src="${baseUrl}${p.code}.webp" alt="${p.name}" loading="lazy" onerror="this.style.opacity='0.3'">
+          <div class="product-overlay">
+            <span class="product-overlay-text">Ver no Atacado →</span>
+          </div>
+        </div>
+        <div class="product-info">
+
+          <div class="product-name">${p.name}</div>
+          <div class="product-volume">${p.volume}</div>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+
+    // Scroll animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
